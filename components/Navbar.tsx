@@ -104,8 +104,8 @@ const shouldBeSolid = !isHome || isScrolled;
 
   <MegaItem
     icon={<Cloud />}
-    title="Cloud Architecture & AWS"
-    desc="High-availability cloud systems."
+    title="Cloud Architectures & Solutions"
+    desc="AWS, Google Cloud & Azure."
     href="/services"
     onClick={closeAll}
   />

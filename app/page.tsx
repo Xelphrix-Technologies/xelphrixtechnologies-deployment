@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     "Xelphrix Technologies builds scalable SaaS platforms, AWS cloud infrastructure, DevOps automation systems, and enterprise-grade digital solutions.",
   keywords: [
     "AWS Cloud Architecture",
+    "Google Cloud Solutions",
+    "Azure Cloud Services",
     "SaaS Development Company",
     "DevOps Automation",
     "Enterprise Software Development",

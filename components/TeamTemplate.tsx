@@ -65,13 +65,13 @@ export default function TeamTemplate() {
                 </h3>
 
                 <p className="text-[#FF9B51] font-medium mb-6">
-                  Founder & Lead Cloud Architect
+                  Founder & Solutions Architect
                 </p>
 
                 <p className="text-[#BFC9D1] leading-relaxed">
                   Gaurav leads Xelphrix with a strong focus on cloud-native
                   architecture, scalable SaaS platforms, and system design
-                  excellence. With deep expertise in AWS infrastructure,
+                  excellence. With deep expertise in Cloud infrastructure,
                   backend engineering, and automation systems, he ensures
                   every solution is engineered for performance, security,
                   and long-term scalability.

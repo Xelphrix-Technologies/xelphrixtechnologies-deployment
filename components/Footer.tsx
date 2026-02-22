@@ -6,9 +6,8 @@ export default function Footer() {
           © {new Date().getFullYear()} Xelphrix Technologies. All rights reserved.
         </p>
         <div className="flex gap-6 text-sm text-gray-400 mt-4 md:mt-0">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">LinkedIn</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
         </div>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ServicesTemplate() {
   return (
@@ -87,6 +88,7 @@ export default function ServicesTemplate() {
           "Cost optimization & monitoring"
         ]}
         reverse={false}
+        image="/images/cloud-migration.png"
       />
 
       <DetailedService
@@ -99,6 +101,7 @@ export default function ServicesTemplate() {
           "Real-time analytics & reporting"
         ]}
         reverse={true}
+        image="/images/saas.jpg"
       />
 
       <DetailedService
@@ -111,6 +114,7 @@ export default function ServicesTemplate() {
           "Secure release management"
         ]}
         reverse={false}
+        image="/images/devops.png"
       />
 
       {/* PROCESS */}
@@ -181,10 +185,21 @@ function ServiceCard({ title, desc }: any) {
   );
 }
 
-function DetailedService({ title, description, points, reverse }: any) {
+function DetailedService({
+  title,
+  description,
+  points,
+  reverse,
+  image,
+}: any) {
   return (
     <section className={`py-28 px-6 ${reverse ? "bg-white" : "bg-[#EAEFEF]"}`}>
-      <div className={`max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center`}>
+      <div
+        className={`max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center ${
+          reverse ? "md:flex-row-reverse" : ""
+        }`}
+      >
+        {/* Text Section */}
         <div>
           <h2 className="text-3xl font-bold text-[#25343F] mb-6">
             {title}
@@ -199,7 +214,15 @@ function DetailedService({ title, description, points, reverse }: any) {
           </ul>
         </div>
 
-        <div className="bg-[#25343F]/10 h-64 rounded-2xl"></div>
+        {/* Image Section */}
+        <div className="relative h-72 w-full rounded-2xl overflow-hidden shadow-xl">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover"
+          />
+        </div>
       </div>
     </section>
   );

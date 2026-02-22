@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function CTA() {
   return (
@@ -30,13 +31,15 @@ export function CTA() {
           and high-performance enterprise systems tailored for your business.
         </motion.p>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-[#FF9B51] hover:bg-[#FFF9B5] text-[#25343F] px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition"
-        >
-          Book Free Consultation
-        </motion.button>
+        <Link href="/contact">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#FF9B51] hover:bg-[#FFF9B5] text-[#25343F] px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition"
+          >
+            Book Free Consultation
+          </motion.button>
+        </Link>
 
       </div>
     </section>

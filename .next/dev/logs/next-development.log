@@ -1,0 +1,11 @@
+[00:00:02.729] Server  LOG     ✓ Ready in 2.5s
+[00:00:13.126] Browser ERROR   uncaughtError: SyntaxError: Unexpected EOF
+[00:00:59.879] Browser ERROR   uncaughtError: SyntaxError: Unexpected EOF
+[00:01:13.050] Browser WARN    Image with src "/images/saas.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:01:13.050] Browser ERROR   uncaughtError: SyntaxError: Unexpected EOF
+[00:01:54.631] Server  LOG     ✓ Compiled in 103ms
+[00:01:54.804] Browser WARN    Image with src "/images/cloud-migration.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:02:12.688] Server  LOG     ✓ Compiled in 38ms
+[00:02:18.579] Server  LOG     ✓ Compiled in 59ms

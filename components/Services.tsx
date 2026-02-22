@@ -12,8 +12,8 @@ export default function Services() {
     },
     {
       icon: Cloud,
-      title: "Cloud Architecture & AWS Solutions",
-      desc: "Secure, high-availability cloud infrastructure design, migrations, cost optimization, and performance engineering on AWS.",
+      title: "Cloud Architectures & Solutions",
+      desc: "Secure, high-availability cloud infrastructure design, migrations, cost optimization, and performance engineering on AWS, Google Cloud and Azure.",
     },
     {
       icon: Server,
