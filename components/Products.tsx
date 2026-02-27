@@ -6,11 +6,6 @@ import HorizontalScroller from "@/components/HorizontalScroller";
 export default function Products() {
   const products = [
     {
-        name: "Xelphrix Outreach Engine",
-        desc: "Enterprise-grade cold outreach and email infrastructure with inbox warm-up, deliverability optimization, automated sequencing, domain management, and advanced performance analytics.",
-        link: "#",
-    },
-    {
         name: "Xelphrix FitCore",
         desc: "Comprehensive fitness center management platform featuring membership automation, recurring billing, attendance tracking, trainer management, and real-time operational insights.",
         link: "#",
