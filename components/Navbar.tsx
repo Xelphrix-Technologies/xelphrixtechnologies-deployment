@@ -174,13 +174,13 @@ const shouldBeSolid = !isHome || isScrolled;
                 >
 <div className="grid grid-cols-2 gap-6">
 
-  <MegaItem
+  {/* <MegaItem
     icon={<Rocket />}
     title="Xelphrix Outreach Engine"
     desc="Cold outreach automation platform."
     href="/products/xelphrix-outreach-engine"
     onClick={closeAll}
-  />
+  /> */}
 
   <MegaItem
     icon={<Dumbbell />}
