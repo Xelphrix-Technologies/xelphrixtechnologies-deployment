@@ -13,11 +13,19 @@ import {
   ShieldCheck,
   BarChart3,
   Sparkles,
-  Rocket,
   Dumbbell,
   ShoppingCart,
+  type LucideIcon,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
+interface MegaItemProps {
+  icon: LucideIcon;
+  title: string;
+  desc: string;
+  href: string;
+  onClick: () => void;
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -28,13 +36,13 @@ export default function Navbar() {
     useState<null | "services" | "products">(null);
 
   useEffect(() => {
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 20);
-  };
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const closeAll = () => {
     setMobileOpen(false);
@@ -42,16 +50,16 @@ export default function Navbar() {
   };
 
   const isHome = pathname === "/";
-const shouldBeSolid = !isHome || isScrolled;
+  const shouldBeSolid = !isHome || isScrolled;
 
   return (
-    <nav
-  className={`fixed w-full z-50 transition-all duration-300 ${
-    shouldBeSolid
-      ? "bg-[#25343F]/95 backdrop-blur-xl border-b border-[#BFC9D1]/20 shadow-lg"
-      : "bg-transparent"
-  }`}
->
+      <nav
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          shouldBeSolid
+            ? "bg-[#25343F]/95 backdrop-blur-xl border-b border-[#BFC9D1]/20 shadow-lg"
+            : "bg-transparent"
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* LOGO */}
@@ -95,7 +103,7 @@ const shouldBeSolid = !isHome || isScrolled;
                   <div className="grid grid-cols-2 gap-6">
 
   <MegaItem
-    icon={<Code />}
+    icon={Code}
     title="Custom Software Engineering"
     desc="Scalable full-stack applications."
     href="/services"
@@ -103,7 +111,7 @@ const shouldBeSolid = !isHome || isScrolled;
   />
 
   <MegaItem
-    icon={<Cloud />}
+    icon={Cloud}
     title="Cloud Architectures & Solutions"
     desc="AWS, Google Cloud & Azure."
     href="/services"
@@ -111,7 +119,7 @@ const shouldBeSolid = !isHome || isScrolled;
   />
 
   <MegaItem
-    icon={<Server />}
+    icon={Server}
     title="DevOps & Automation"
     desc="CI/CD & infrastructure pipelines."
     href="/services"
@@ -119,7 +127,7 @@ const shouldBeSolid = !isHome || isScrolled;
   />
 
   <MegaItem
-    icon={<ShieldCheck />}
+    icon={ShieldCheck}
     title="Security & Compliance"
     desc="Secure architecture & IAM control."
     href="/services"
@@ -127,7 +135,7 @@ const shouldBeSolid = !isHome || isScrolled;
   />
 
   <MegaItem
-    icon={<BarChart3 />}
+    icon={BarChart3}
     title="Data & Analytics"
     desc="Dashboards & reporting systems."
     href="/services"
@@ -135,7 +143,7 @@ const shouldBeSolid = !isHome || isScrolled;
   />
 
   <MegaItem
-    icon={<Sparkles />}
+    icon={Sparkles}
     title="Visual Media & Branding"
     desc="UI/UX, motion & digital assets."
     href="/services"
@@ -183,7 +191,7 @@ const shouldBeSolid = !isHome || isScrolled;
   /> */}
 
   <MegaItem
-    icon={<Dumbbell />}
+    icon={Dumbbell}
     title="Xelphrix FitCore"
     desc="Fitness center management system."
     href="/products/xelphrix-fitcore"
@@ -191,7 +199,7 @@ const shouldBeSolid = !isHome || isScrolled;
   />
 
   <MegaItem
-    icon={<ShoppingCart />}
+    icon={ShoppingCart}
     title="Xelphrix Commerce Suite"
     desc="Scalable e-commerce infrastructure."
     href="/products/xelphrix-commerce-suite"
@@ -291,14 +299,16 @@ function MegaItem({
   desc,
   href,
   onClick,
-}: any) {
+}: MegaItemProps) {
+  const Icon = icon;
+
   return (
     <Link href={href} onClick={onClick}>
       <motion.div
         whileHover={{ y: -4 }}
         className="flex gap-4 p-4 rounded-xl hover:bg-[#25343F] transition cursor-pointer"
       >
-        <div className="text-[#FF9B51] mt-1">{icon}</div>
+        <div className="text-[#FF9B51] mt-1"><Icon size={20} /></div>
         <div>
           <div className="font-medium text-base mb-1 text-[#EAEFEF]">
             {title}

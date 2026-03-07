@@ -1,9 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
+
+interface ContactFormData {
+  name: string;
+  email: string;
+  company: string;
+  service: string;
+  message: string;
+}
+
+interface InputFieldProps {
+  label: string;
+  name: keyof ContactFormData;
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  type?: "text" | "email";
+}
 
 export default function ContactTemplate() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     company: "",
@@ -14,39 +31,46 @@ export default function ContactTemplate() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
-  const handleChange = (e: any) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setSuccess("");
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      const subject = encodeURIComponent(
+        `New Inquiry from ${formData.name} (${formData.service || "General"})`
+      );
+      const body = encodeURIComponent(
+        [
+          `Name: ${formData.name}`,
+          `Email: ${formData.email}`,
+          `Company: ${formData.company}`,
+          `Inquiry Type: ${formData.service}`,
+          "",
+          "Project Details:",
+          formData.message,
+        ].join("\n")
+      );
+
+      window.location.href = `mailto:info@xelphrixtechnologies.com?subject=${subject}&body=${body}`;
+
+      setSuccess(
+        "Your email app has been opened with your inquiry details. Please send the draft to complete your request."
+      );
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        service: "",
+        message: "",
       });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        setSuccess("Your inquiry has been submitted successfully.");
-        setFormData({
-          name: "",
-          email: "",
-          company: "",
-          service: "",
-          message: "",
-        });
-      } else {
-        alert(data.message || "Something went wrong.");
-      }
-    } catch (error) {
+    } catch {
       alert("Server error. Please try again.");
     }
 
@@ -182,7 +206,7 @@ export default function ContactTemplate() {
   );
 }
 
-function InputField({ label, name, value, onChange, type = "text" }: any) {
+function InputField({ label, name, value, onChange, type = "text" }: InputFieldProps) {
   return (
     <div className="flex flex-col">
       <label className="mb-2 text-[#25343F] font-medium">{label}</label>

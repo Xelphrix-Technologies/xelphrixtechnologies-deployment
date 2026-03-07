@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute w-[600px] h-[600px] bg-[#FF9B51]/10 rounded-full blur-3xl top-[-200px] left-[-200px]" />
       <div className="absolute w-[500px] h-[500px] bg-[#FFF9B5]/10 rounded-full blur-3xl bottom-[-200px] right-[-200px]" />
 
-      <div className="relative z-10 max-w-4xl">
+      <div className="relative z-10 max-w-5xl">
         
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
@@ -35,9 +35,31 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="mt-8 mx-auto max-w-3xl rounded-2xl border border-[#BFC9D1]/20 bg-[#2F3A44]/60 px-6 py-4 backdrop-blur"
+        >
+          <div className="grid grid-cols-1 gap-4 text-left sm:grid-cols-3 sm:text-center">
+            <div>
+              <p className="text-2xl font-bold text-[#EAEFEF]">99.9%</p>
+              <p className="text-sm text-[#BFC9D1]">Uptime-Focused Architecture</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-[#EAEFEF]">Cloud-Native</p>
+              <p className="text-sm text-[#BFC9D1]">AWS and Modern DevOps Delivery</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-[#EAEFEF]">Enterprise Ready</p>
+              <p className="text-sm text-[#BFC9D1]">Security and Scalability by Design</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+          transition={{ delay: 0.45, duration: 0.6 }}
             className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
             >
             <motion.a

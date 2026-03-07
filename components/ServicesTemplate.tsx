@@ -3,6 +3,24 @@
 import Link from "next/link";
 import Image from "next/image";
 
+interface ServiceCardProps {
+  title: string;
+  desc: string;
+}
+
+interface DetailedServiceProps {
+  title: string;
+  description: string;
+  points: string[];
+  reverse: boolean;
+  image: string;
+}
+
+interface ProcessStepProps {
+  step: string;
+  title: string;
+}
+
 export default function ServicesTemplate() {
   return (
     <div className="bg-[#EAEFEF]">
@@ -172,7 +190,7 @@ export default function ServicesTemplate() {
 
 /* COMPONENTS */
 
-function ServiceCard({ title, desc }: any) {
+function ServiceCard({ title, desc }: ServiceCardProps) {
   return (
     <div className="bg-white p-8 rounded-2xl shadow-md">
       <h3 className="text-xl font-semibold text-[#25343F] mb-4">
@@ -191,16 +209,14 @@ function DetailedService({
   points,
   reverse,
   image,
-}: any) {
+}: DetailedServiceProps) {
   return (
     <section className={`py-28 px-6 ${reverse ? "bg-white" : "bg-[#EAEFEF]"}`}>
       <div
-        className={`max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center ${
-          reverse ? "md:flex-row-reverse" : ""
-        }`}
+        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center"
       >
         {/* Text Section */}
-        <div>
+        <div className={reverse ? "md:order-2" : ""}>
           <h2 className="text-3xl font-bold text-[#25343F] mb-6">
             {title}
           </h2>
@@ -215,7 +231,7 @@ function DetailedService({
         </div>
 
         {/* Image Section */}
-        <div className="relative h-72 w-full rounded-2xl overflow-hidden shadow-xl">
+        <div className={`relative h-72 w-full rounded-2xl overflow-hidden shadow-xl ${reverse ? "md:order-1" : ""}`}>
           <Image
             src={image}
             alt={title}
@@ -228,7 +244,7 @@ function DetailedService({
   );
 }
 
-function ProcessStep({ step, title }: any) {
+function ProcessStep({ step, title }: ProcessStepProps) {
   return (
     <div>
       <div className="text-3xl font-bold text-[#FF9B51] mb-4">

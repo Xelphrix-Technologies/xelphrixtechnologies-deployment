@@ -1,7 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { Shield, Lightbulb, Cpu, Compass } from "lucide-react";
+
+interface TeamCardProps {
+  name: string;
+  role: string;
+  bio: string;
+}
+
+interface CultureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}
 
 export default function TeamTemplate() {
   return (
@@ -95,28 +107,24 @@ export default function TeamTemplate() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 
             <TeamCard
-              avatar="/team/cloud.jpg"
               name="Senior Cloud Architect"
               role="Infrastructure & Security"
               bio="Designs high-availability AWS environments, multi-region deployments, and secure cloud architectures."
             />
 
             <TeamCard
-              avatar="/team/backend.jpg"
               name="Backend Engineer"
               role="API & System Architecture"
               bio="Builds scalable Node.js services, database systems, and real-time data processing pipelines."
             />
 
             <TeamCard
-              avatar="/team/devops.jpg"
               name="DevOps Engineer"
               role="Automation & CI/CD"
               bio="Implements infrastructure-as-code, monitoring systems, and automated deployment workflows."
             />
 
             <TeamCard
-              avatar="/team/frontend.jpg"
               name="Frontend Engineer"
               role="UI/UX & Web Applications"
               bio="Develops responsive React applications with performance optimization and scalable component architecture."
@@ -136,10 +144,26 @@ export default function TeamTemplate() {
           </h2>
 
           <div className="grid md:grid-cols-4 gap-10">
-            <CultureCard title="Ownership & Accountability" />
-            <CultureCard title="Continuous Innovation" />
-            <CultureCard title="Technical Discipline" />
-            <CultureCard title="Long-Term Thinking" />
+            <CultureCard
+              icon={<Shield className="text-[#FF9B51]" />}
+              title="Ownership & Accountability"
+              desc="Every delivery is measured by business outcomes, not just code completion."
+            />
+            <CultureCard
+              icon={<Lightbulb className="text-[#FF9B51]" />}
+              title="Continuous Innovation"
+              desc="We improve architecture and workflows continuously to keep products future-ready."
+            />
+            <CultureCard
+              icon={<Cpu className="text-[#FF9B51]" />}
+              title="Technical Discipline"
+              desc="Engineering decisions are guided by performance, reliability, and security standards."
+            />
+            <CultureCard
+              icon={<Compass className="text-[#FF9B51]" />}
+              title="Long-Term Thinking"
+              desc="We design systems that scale gracefully as your product and customer base grow."
+            />
           </div>
 
         </div>
@@ -184,7 +208,7 @@ function Avatar({ name, size = 80 }: { name: string; size?: number }) {
   );
 }
 
-function TeamCard({ avatar, name, role, bio }: any) {
+function TeamCard({ name, role, bio }: TeamCardProps) {
   return (
     <div className="bg-[#EAEFEF] p-8 rounded-2xl text-left hover:shadow-xl transition group">
 
@@ -214,7 +238,7 @@ function TeamCard({ avatar, name, role, bio }: any) {
   );
 }
 
-function CultureCard({ icon, title, desc }: any) {
+function CultureCard({ icon, title, desc }: CultureCardProps) {
   return (
     <div className="group bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 hover:-translate-y-2 text-left border border-transparent hover:border-[#FF9B51]/40">
 

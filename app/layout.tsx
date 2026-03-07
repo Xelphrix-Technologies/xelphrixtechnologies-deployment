@@ -9,11 +9,80 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.xelphrixtechnologies.com"),
+  title: {
+    default: "Xelphrix Technologies | Cloud, SaaS, and DevOps Engineering",
+    template: "%s",
+  },
+  description:
+    "Xelphrix Technologies delivers cloud architecture, SaaS product engineering, DevOps automation, and enterprise digital solutions.",
   applicationName: "Xelphrix Technologies",
   authors: [{ name: "Xelphrix Technologies" }],
   creator: "Xelphrix Technologies",
   publisher: "Xelphrix Technologies",
   category: "Technology",
+  alternates: {
+    canonical: "https://www.xelphrixtechnologies.com",
+  },
+  openGraph: {
+    title: "Xelphrix Technologies",
+    description:
+      "Cloud architecture, SaaS engineering, and DevOps automation for modern businesses.",
+    url: "https://www.xelphrixtechnologies.com",
+    siteName: "Xelphrix Technologies",
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "/images/saas.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Xelphrix Technologies cloud and SaaS engineering",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Xelphrix Technologies",
+    description:
+      "Cloud architecture, SaaS engineering, and DevOps automation for modern businesses.",
+    images: ["/images/saas.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Xelphrix Technologies",
+  url: "https://www.xelphrixtechnologies.com",
+  logo: "https://www.xelphrixtechnologies.com/images/saas.jpg",
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+91 9217354100",
+      contactType: "customer support",
+      areaServed: "IN",
+      email: "info@xelphrixtechnologies.com",
+      availableLanguage: ["English", "Hindi"],
+    },
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Xelphrix Technologies",
+  url: "https://www.xelphrixtechnologies.com",
 };
 
 export default function RootLayout({
@@ -35,6 +104,20 @@ export default function RootLayout({
 
         <Footer />
 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-VG4RJ9K2RP`}
           strategy="afterInteractive"
@@ -45,7 +128,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-VG4RJ9K2RP);
+            gtag('config', 'G-VG4RJ9K2RP');
           `}
         </Script>
 

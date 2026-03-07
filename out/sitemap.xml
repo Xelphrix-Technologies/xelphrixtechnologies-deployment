@@ -37,4 +37,34 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://www.xelphrixtechnologies.com/products/xelphrix-fitcore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.xelphrixtechnologies.com/products/xelphrix-commerce-suite</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.xelphrixtechnologies.com/products/xelphrix-outreach-engine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.xelphrixtechnologies.com/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://www.xelphrixtechnologies.com/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
 </urlset>
