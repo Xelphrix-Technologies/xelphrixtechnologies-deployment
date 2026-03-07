@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 export default function ContactTemplate() {
   const [formData, setFormData] = useState({
@@ -80,6 +79,30 @@ export default function ContactTemplate() {
       {/* FORM SECTION */}
       <section className="py-28 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
+
+          <div className="grid gap-4 md:grid-cols-2 mb-12">
+            <a
+              href="tel:+919217354100"
+              className="rounded-2xl border border-[#BFC9D1]/40 bg-[#EAEFEF] p-5 transition hover:border-[#FF9B51]"
+            >
+              <p className="text-sm uppercase tracking-wide text-[#596A78] mb-2">
+                Contact Number
+              </p>
+              <p className="text-xl font-semibold text-[#25343F]">+91 9217354100</p>
+            </a>
+
+            <a
+              href="mailto:info@xelphrixtechnologies.com"
+              className="rounded-2xl border border-[#BFC9D1]/40 bg-[#EAEFEF] p-5 transition hover:border-[#FF9B51]"
+            >
+              <p className="text-sm uppercase tracking-wide text-[#596A78] mb-2">
+                Email Address
+              </p>
+              <p className="text-xl font-semibold text-[#25343F]">
+                info@xelphrixtechnologies.com
+              </p>
+            </a>
+          </div>
 
           <h2 className="text-3xl font-bold text-[#25343F] text-center mb-16">
             Request a Consultation
