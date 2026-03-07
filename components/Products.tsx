@@ -8,12 +8,12 @@ export default function Products() {
     {
         name: "Xelphrix FitCore",
         desc: "Comprehensive fitness center management platform featuring membership automation, recurring billing, attendance tracking, trainer management, and real-time operational insights.",
-        link: "#",
+        link: "/products/xelphrix-fitcore",
     },
     {
         name: "Xelphrix Commerce Suite",
         desc: "Secure, scalable e-commerce platform with product lifecycle management, payment integrations, order processing, inventory automation, and performance analytics.",
-        link: "#",
+        link: "/products/xelphrix-commerce-suite",
     },
     ];
 

@@ -2,10 +2,21 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import {
+  Cloud,
+  Cpu,
+  ShieldCheck,
+  Workflow,
+  Sparkles,
+  LineChart,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
 
 interface ServiceCardProps {
   title: string;
   desc: string;
+  icon: React.ReactNode;
 }
 
 interface DetailedServiceProps {
@@ -19,91 +30,106 @@ interface DetailedServiceProps {
 interface ProcessStepProps {
   step: string;
   title: string;
+  detail: string;
 }
 
 export default function ServicesTemplate() {
   return (
     <div className="bg-[#EAEFEF]">
+      <section className="relative overflow-hidden bg-[#25343F] px-6 py-36 text-center">
+        <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-[#FF9B51]/15 blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-[#FFF9B5]/10 blur-3xl" />
 
-      {/* HERO */}
-      <section className="bg-[#25343F] py-36 px-6 text-center">
-        <div className="max-w-4xl mx-auto">
+        <div className="relative mx-auto max-w-5xl">
+          <span className="inline-flex items-center rounded-full border border-[#BFC9D1]/30 bg-[#2F3A44]/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#BFC9D1]">
+            Enterprise Engineering Services
+          </span>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-[#EAEFEF] mb-6">
-            Enterprise Technology Services
+          <h1 className="mt-8 text-5xl font-bold text-[#EAEFEF] md:text-6xl">
+            Premium Digital Engineering
+            <span className="block text-[#FF9B51]">Built for Scale and Trust</span>
           </h1>
 
-          <p className="text-xl text-[#FF9B51] mb-6">
-            Cloud, SaaS, DevOps & Digital Engineering
+          <p className="mx-auto mt-7 max-w-3xl text-lg text-[#BFC9D1] md:text-xl">
+            We design high-performance systems across cloud, SaaS, and automation with a focus
+            on reliability, security, and measurable business outcomes.
           </p>
 
-          <p className="text-[#BFC9D1] max-w-2xl mx-auto mb-10">
-            We design, architect, and scale enterprise-grade systems —
-            from cloud infrastructure to high-performance SaaS platforms.
-          </p>
+          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+            <StatPill title="99.9%" subtitle="Uptime-led architecture" />
+            <StatPill title="Cloud Native" subtitle="Modern AWS delivery" />
+            <StatPill title="Enterprise" subtitle="Security-first engineering" />
+          </div>
 
-          <Link
-            href="/contact"
-            className="bg-[#FF9B51] hover:bg-[#FFF9B5] text-[#25343F] px-8 py-3 rounded-xl font-semibold"
-          >
-            Schedule Consultation
-          </Link>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#FF9B51] px-8 py-3 font-semibold text-[#25343F] transition hover:bg-[#FFF9B5]"
+            >
+              Schedule Consultation
+              <ArrowRight size={18} />
+            </Link>
 
-        </div>
-      </section>
-
-      {/* SERVICES OVERVIEW GRID */}
-      <section className="py-28 px-6 text-center">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#25343F] mb-16">
-            What We Deliver
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-12">
-
-            <ServiceCard
-              title="Software Development"
-              desc="Custom web applications, enterprise systems, and scalable SaaS platforms."
-            />
-
-            <ServiceCard
-              title="Enterprise Cloud Infrastructure"
-              desc="AWS architecture, migration, high-availability design, and optimization."
-            />
-
-            <ServiceCard
-              title="DevOps & Automation"
-              desc="CI/CD pipelines, containerization, monitoring, and infrastructure automation."
-            />
-
-            <ServiceCard
-              title="SaaS Product Engineering"
-              desc="Full-cycle product design, backend systems, APIs, and integrations."
-            />
-
-            <ServiceCard
-              title="UI/UX & Branding"
-              desc="Modern digital interfaces, branding systems, and enterprise design."
-            />
-
-            <ServiceCard
-              title="Video & Motion Design"
-              desc="Corporate explainer videos, product demos, and presentation assets."
-            />
-
+            <Link
+              href="/products"
+              className="rounded-xl border border-[#BFC9D1]/40 px-8 py-3 font-semibold text-[#EAEFEF] transition hover:bg-[#2F3A44]"
+            >
+              View Product Portfolio
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* DETAILED SERVICE SECTION */}
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-6xl text-center">
+          <h2 className="text-3xl font-bold text-[#25343F] md:text-4xl">What We Deliver</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-[#596A78]">
+            End-to-end capabilities across architecture, engineering, automation, and digital growth.
+          </p>
+
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
+            <ServiceCard
+              icon={<Cpu size={22} />}
+              title="Custom Software Engineering"
+              desc="Scalable web applications, internal tools, and enterprise systems with clean architecture and maintainable codebases."
+            />
+            <ServiceCard
+              icon={<Cloud size={22} />}
+              title="Cloud Architecture and Migration"
+              desc="High-availability cloud foundations, migration planning, and performance optimization for business-critical workloads."
+            />
+            <ServiceCard
+              icon={<Workflow size={22} />}
+              title="DevOps and Delivery Automation"
+              desc="CI/CD, infrastructure as code, observability, and release automation that accelerate delivery without sacrificing quality."
+            />
+            <ServiceCard
+              icon={<ShieldCheck size={22} />}
+              title="Security and Compliance"
+              desc="Identity controls, secure configurations, and governance practices to protect systems and reduce operational risk."
+            />
+            <ServiceCard
+              icon={<LineChart size={22} />}
+              title="Data and Analytics"
+              desc="Executive dashboards, operational reporting, and analytics pipelines that support faster business decisions."
+            />
+            <ServiceCard
+              icon={<Sparkles size={22} />}
+              title="Digital Experience and Brand"
+              desc="Premium interfaces and cohesive visual systems designed to increase trust, engagement, and conversion."
+            />
+          </div>
+        </div>
+      </section>
+
       <DetailedService
-        title="Cloud Architecture & Migration"
-        description="We architect highly available, secure, and scalable cloud environments designed to support enterprise workloads."
+        title="Cloud Architecture and Migration"
+        description="We engineer cloud foundations that are resilient, cost-aware, and ready for enterprise-scale growth from day one."
         points={[
-          "Multi-region high availability",
-          "RDS, EC2, VPC architecture design",
-          "Security & compliance implementation",
-          "Cost optimization & monitoring"
+          "Multi-region high availability design",
+          "VPC, compute, and data-layer architecture",
+          "Security controls and compliance guardrails",
+          "Cost monitoring and optimization strategy",
         ]}
         reverse={false}
         image="/images/cloud-migration.png"
@@ -111,148 +137,152 @@ export default function ServicesTemplate() {
 
       <DetailedService
         title="Custom SaaS Development"
-        description="From MVP to enterprise-scale SaaS, we build systems engineered for performance and growth."
+        description="From MVP to mature product, we build SaaS platforms with strong domain models, reliable APIs, and clear scalability paths."
         points={[
-          "Scalable backend architecture",
-          "Multi-tenant system design",
-          "Role-based access control",
-          "Real-time analytics & reporting"
+          "Scalable backend and API architecture",
+          "Multi-tenant capabilities and isolation",
+          "Role-based access and governance",
+          "Usage analytics and reporting systems",
         ]}
         reverse={true}
         image="/images/saas.jpg"
       />
 
       <DetailedService
-        title="DevOps & CI/CD Automation"
-        description="We streamline software delivery through automation and infrastructure-as-code."
+        title="DevOps and CI/CD Automation"
+        description="We streamline software delivery with practical automation, measurable release safety, and production-grade observability."
         points={[
-          "Automated deployments",
-          "Docker & container orchestration",
-          "Monitoring & observability",
-          "Secure release management"
+          "Automated build, test, and deploy pipelines",
+          "Containerization and environment parity",
+          "Monitoring, alerts, and incident readiness",
+          "Secure release management workflows",
         ]}
         reverse={false}
         image="/images/devops.png"
       />
 
-      {/* PROCESS */}
-      <section className="py-28 px-6 bg-white text-center">
-        <div className="max-w-6xl mx-auto">
+      <section className="bg-white px-6 py-28 text-center">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-bold text-[#25343F] md:text-4xl">Our Delivery Framework</h2>
 
-          <h2 className="text-3xl font-bold text-[#25343F] mb-16">
-            Our Methodology
-          </h2>
-
-          <div className="grid md:grid-cols-4 gap-10">
-            <ProcessStep step="01" title="Discovery" />
-            <ProcessStep step="02" title="Architecture" />
-            <ProcessStep step="03" title="Implementation" />
-            <ProcessStep step="04" title="Scale & Optimize" />
+          <div className="mt-14 grid gap-8 md:grid-cols-4">
+            <ProcessStep
+              step="01"
+              title="Discovery"
+              detail="Business context, technical baseline, and success metrics."
+            />
+            <ProcessStep
+              step="02"
+              title="Architecture"
+              detail="Scalable blueprint, risk controls, and implementation plan."
+            />
+            <ProcessStep
+              step="03"
+              title="Execution"
+              detail="Incremental delivery with quality checks and visibility."
+            />
+            <ProcessStep
+              step="04"
+              title="Scale"
+              detail="Optimization, governance, and long-term performance tuning."
+            />
           </div>
-
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="py-28 px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-
-          <h2 className="text-3xl font-bold text-[#25343F] mb-10">
-            Why Xelphrix?
-          </h2>
-
-          <p className="text-[#596A78] text-lg leading-relaxed">
-            We combine deep technical expertise with enterprise architecture
-            discipline. Our approach ensures scalable, secure, and future-ready
-            systems aligned with your business objectives.
+      <section className="px-6 py-28 text-center">
+        <div className="mx-auto max-w-4xl rounded-3xl border border-[#BFC9D1]/40 bg-white p-12 shadow-lg">
+          <h2 className="text-3xl font-bold text-[#25343F]">Why Teams Choose Xelphrix</h2>
+          <p className="mt-5 text-[#596A78]">
+            We combine architecture discipline with product thinking, so every engagement improves
+            speed, reliability, and confidence in your digital platform.
           </p>
-
+          <div className="mt-8 grid gap-3 text-left sm:grid-cols-2">
+            <CheckLine text="Architecture decisions tied to business outcomes" />
+            <CheckLine text="Reliable execution with transparent delivery" />
+            <CheckLine text="Security and scalability built in from the start" />
+            <CheckLine text="Long-term support for continuous improvement" />
+          </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="py-32 px-6 bg-[#25343F] text-center">
-        <h2 className="text-3xl font-bold text-[#EAEFEF] mb-6">
-          Ready to Engineer Your Next Enterprise Platform?
+      <section className="bg-[#25343F] px-6 py-32 text-center">
+        <h2 className="text-3xl font-bold text-[#EAEFEF]">
+          Ready to Build a Premium Digital Platform?
         </h2>
 
         <Link
           href="/contact"
-          className="bg-[#FF9B51] hover:bg-[#FFF9B5] text-[#25343F] px-8 py-3 rounded-xl font-semibold"
+          className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#FF9B51] px-8 py-3 font-semibold text-[#25343F] transition hover:bg-[#FFF9B5]"
         >
           Book a Strategy Call
+          <ArrowRight size={18} />
         </Link>
       </section>
-
     </div>
   );
 }
 
-/* COMPONENTS */
-
-function ServiceCard({ title, desc }: ServiceCardProps) {
+function StatPill({ title, subtitle }: { title: string; subtitle: string }) {
   return (
-    <div className="bg-white p-8 rounded-2xl shadow-md">
-      <h3 className="text-xl font-semibold text-[#25343F] mb-4">
-        {title}
-      </h3>
-      <p className="text-[#596A78]">
-        {desc}
-      </p>
+    <div className="rounded-2xl border border-[#BFC9D1]/20 bg-[#2F3A44]/60 px-4 py-4 backdrop-blur">
+      <p className="text-lg font-bold text-[#EAEFEF]">{title}</p>
+      <p className="mt-1 text-xs text-[#BFC9D1]">{subtitle}</p>
     </div>
   );
 }
 
-function DetailedService({
-  title,
-  description,
-  points,
-  reverse,
-  image,
-}: DetailedServiceProps) {
+function ServiceCard({ title, desc, icon }: ServiceCardProps) {
   return (
-    <section className={`py-28 px-6 ${reverse ? "bg-white" : "bg-[#EAEFEF]"}`}>
-      <div
-        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center"
-      >
-        {/* Text Section */}
+    <div className="group rounded-2xl border border-[#BFC9D1]/40 bg-white p-8 text-left shadow-md transition hover:-translate-y-1 hover:shadow-xl hover:border-[#FF9B51]/70">
+      <div className="mb-5 inline-flex rounded-xl bg-[#FF9B51]/10 p-3 text-[#FF9B51]">{icon}</div>
+      <h3 className="text-xl font-semibold text-[#25343F]">{title}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-[#596A78]">{desc}</p>
+    </div>
+  );
+}
+
+function DetailedService({ title, description, points, reverse, image }: DetailedServiceProps) {
+  return (
+    <section className={`px-6 py-24 ${reverse ? "bg-white" : "bg-[#EAEFEF]"}`}>
+      <div className="mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-2">
         <div className={reverse ? "md:order-2" : ""}>
-          <h2 className="text-3xl font-bold text-[#25343F] mb-6">
-            {title}
-          </h2>
-          <p className="text-[#596A78] mb-8">
-            {description}
-          </p>
-          <ul className="space-y-3 text-[#596A78]">
-            {points.map((point: string, i: number) => (
-              <li key={i}>• {point}</li>
+          <h2 className="text-3xl font-bold text-[#25343F]">{title}</h2>
+          <p className="mt-5 text-[#596A78]">{description}</p>
+
+          <ul className="mt-8 space-y-3">
+            {points.map((point, index) => (
+              <li key={index} className="flex items-start gap-3 text-[#596A78]">
+                <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#FF9B51]" />
+                <span>{point}</span>
+              </li>
             ))}
           </ul>
         </div>
 
-        {/* Image Section */}
-        <div className={`relative h-72 w-full rounded-2xl overflow-hidden shadow-xl ${reverse ? "md:order-1" : ""}`}>
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover"
-          />
+        <div className={`relative h-80 w-full overflow-hidden rounded-3xl border border-[#BFC9D1]/30 shadow-xl ${reverse ? "md:order-1" : ""}`}>
+          <Image src={image} alt={title} fill className="object-cover" />
         </div>
       </div>
     </section>
   );
 }
 
-function ProcessStep({ step, title }: ProcessStepProps) {
+function ProcessStep({ step, title, detail }: ProcessStepProps) {
   return (
-    <div>
-      <div className="text-3xl font-bold text-[#FF9B51] mb-4">
-        {step}
-      </div>
-      <div className="text-[#25343F] font-semibold">
-        {title}
-      </div>
+    <div className="rounded-2xl border border-[#BFC9D1]/40 bg-[#EAEFEF] p-7 text-left">
+      <p className="text-sm font-bold tracking-wider text-[#FF9B51]">STEP {step}</p>
+      <h3 className="mt-2 text-xl font-semibold text-[#25343F]">{title}</h3>
+      <p className="mt-3 text-sm text-[#596A78]">{detail}</p>
+    </div>
+  );
+}
+
+function CheckLine({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-2 rounded-lg bg-[#EAEFEF] px-3 py-2 text-sm text-[#25343F]">
+      <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#FF9B51]" />
+      <span>{text}</span>
     </div>
   );
 }
