@@ -20,6 +20,15 @@ export const metadata: Metadata = {
   creator: "Xelphrix Technologies",
   publisher: "Xelphrix Technologies",
   category: "Technology",
+  icons: {
+    icon: [
+      { url: "/asets/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/asets/favicon/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/asets/favicon/favicon.ico",
+    apple: { url: "/asets/favicon/apple-touch-icon.png", sizes: "180x180" },
+  },
+  manifest: "/asets/favicon/site.webmanifest",
   alternates: {
     canonical: "https://www.xelphrixtechnologies.com",
   },
